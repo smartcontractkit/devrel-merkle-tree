@@ -1,9 +1,10 @@
-async function generateTree() {
-    const { MerkleTree } = require('merkletreejs')
-    const keccak256 = require('keccak256')
+import { MerkleTree } from 'merkletreejs'
+import { keccak256 } from 'ethers/lib/utils'
+
+export async function generateTree(): Promise<MerkleTree> {
 
     let allowList = [
-        '0x0000000000000000000000000000000000000001',
+        '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
         '0x0000000000000000000000000000000000000002',
         '0x0000000000000000000000000000000000000003',
         '0x0000000000000000000000000000000000000004',
@@ -17,15 +18,6 @@ async function generateTree() {
     const root = tree.getHexRoot()
     console.log('Merkle root:', root)
     console.log('Merkle tree:\n', tree.toString())
-
-    // Check proof for first address
-    const checkAddr = '0x0000000000000000000000000000000000000001'
-    const hashedAddr = keccak256(checkAddr)
-    const proof = tree.getHexProof(hashedAddr)
-    console.log('Proof for', checkAddr, ':\n', proof)
-
-    const verified = tree.verify(proof, hashedAddr, root)
-    console.log('Verified:', verified)
 
     return tree
 }
