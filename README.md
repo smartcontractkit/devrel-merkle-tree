@@ -1,5 +1,5 @@
 # Merkle Tree Tutorial
-This repo will support the tutorial found at [TODO](link coming soon)
+This repo will support the tutorial found at [How To Store Unlimited Data On-Chain Using Merkle Trees, Typescript, Solidity, and Hardhat](https://youtu.be/beXMVLwZ9qA)
 
 ## How To Use This Repo
 
